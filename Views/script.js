@@ -39,11 +39,11 @@ async function getUserDet(){
 async function renderLights(){
     try{
         // Make an API request to Node to get all connected lights
-        const res = await fetch('https://heavy-lies-act.loca.lt//light',{
+        const res = await fetch('https://heavy-lies-act.loca.lt/light',{
             method:"GET",
             headers:{"Content-Type":"application/json"}
         });
-        const light = await res.json();
+        const lights = await res.json();
         const grid = document.getElementById("led-grid");
         grid.innerHTML='';
         lights.forEach((light) => {
@@ -114,6 +114,7 @@ logout.addEventListener("click",async(e)=>{
 });
 renderLights();
 getUserDet();
+
 
 
 
