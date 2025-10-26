@@ -5,10 +5,11 @@ loginForm.addEventListener("submit",async(e) => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const data = JSON.stringify({"username":username,"password":password});
-    const res = await fetch("https://ten-geckos-cry.loca.lt/login",{
+    const res = await fetch("https://poor-chevy-variation-analyst.trycloudflare.com/login",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body: data
+        body: data,
+        credentials:"include"
     });
     const result = await res.json();
     if(res.ok){
@@ -21,5 +22,6 @@ loginForm.addEventListener("submit",async(e) => {
     }
 
 });
+
 
 
