@@ -43,7 +43,9 @@ async function renderLights(){
             method:"GET",
             headers:{"Content-Type":"application/json"}
         });
-        const lights = await res.json();
+        const text = await res.text();
+        console.log(text);
+        /*const lights = await res.json();
         // Now using DOM, display all the connected lights in the app
         const grid = document.getElementById("led-grid");
         grid.innerHTML='';
@@ -77,7 +79,7 @@ async function renderLights(){
         led.appendChild(color);
         led.appendChild(toggle);
         //Append the led class to container
-        grid.appendChild(led);
+        grid.appendChild(led); */
     });
     }catch(err){
         console.error(err);
@@ -115,5 +117,6 @@ logout.addEventListener("click",async(e)=>{
 });
 renderLights();
 getUserDet();
+
 
 
