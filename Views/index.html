@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Home Automation</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div id="user-name"></div>
+            <div class="user-info">
+                <span id="admin-only"><a href="./admin.html">⚙ Admin</a></span>
+                <span id="user-role"></span>
+                <span id="user-permission"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </nav>
+        <div class="container" id="container">
+            <h1 id="header">LED Control Dashboard</h1>
+            <div class="led-grid" id="led-grid">
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
