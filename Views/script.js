@@ -9,10 +9,9 @@ if(!user.control){
 */
 async function getUserDet(){
     // This function gets the username and his role
-    const res = await fetch("http://localhost:3500/user",{
+    const res = await fetch("https://conferrable-emotionalistic-guillermo.ngrok-free.dev/user",{
         method:"GET",
-        headers:{"Content-Type":"application/json"},
-        credentials:"include"
+        headers:{"Content-Type":"application/json"}
     });
     const user = await res.json();
     if(!user)   alert("Please Log in!");
@@ -40,10 +39,9 @@ async function getUserDet(){
 async function renderLights(){
     try{
         // Make an API request to Node to get all connected lights
-        const res = await fetch('http://localhost:3500/light',{
+        const res = await fetch('https://conferrable-emotionalistic-guillermo.ngrok-free.dev/light',{
             method:"GET",
-            headers:{"Content-Type":"application/json"},
-            credentials:"include"  // Send cookie to Node as only logged-in users can get access to lights
+            headers:{"Content-Type":"application/json"}
         });
         const lights = await res.json();
         // Now using DOM, display all the connected lights in the app
@@ -88,7 +86,7 @@ async function renderLights(){
 // To send Signal API request to Node
 async function sendSignal(clr,cmd){
     const SIGNAL = JSON.stringify({"color":clr,"command":cmd});
-    const res = await fetch('http://localhost:3500/signal',{
+    const res = await fetch('https://conferrable-emotionalistic-guillermo.ngrok-free.dev/signal',{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body: SIGNAL
@@ -104,10 +102,9 @@ const logout = document.getElementById('logout-btn');
 
 logout.addEventListener("click",async(e)=>{
     try{
-        const res = await fetch("http://localhost:3500/logout",{
-        method:"POST",
-        credentials:"include"
-    });
+        const res = await fetch("https://conferrable-emotionalistic-guillermo.ngrok-free.dev/logout",{
+        method:"POST"
+        });
     if(res.ok)
         window.location.href="./login.html";
     else
@@ -118,4 +115,5 @@ logout.addEventListener("click",async(e)=>{
 });
 renderLights();
 getUserDet();
+
 
