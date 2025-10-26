@@ -5,7 +5,7 @@ loginForm.addEventListener("submit",async(e) => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const data = JSON.stringify({"username":username,"password":password});
-    const res = await fetch("https://heavy-lies-act.loca.lt/login",{
+    const res = await fetch("https://ten-geckos-cry.loca.lt/login",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body: data
@@ -21,4 +21,5 @@ loginForm.addEventListener("submit",async(e) => {
     }
 
 });
+
 
