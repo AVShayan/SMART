@@ -2,11 +2,10 @@
 
 async function getAdmin(){
     try{
-        const res = await fetch("http://localhost:3500/user",{
+        const res = await fetch("https://conferrable-emotionalistic-guillermo.ngrok-free.dev/user",{
         method:"GET",
-        headers:{"Content-Type":"application/json"},
-        credentials:"include"
-    });
+        headers:{"Content-Type":"application/json"}
+        });
     const user = await res.json();
     // Double-check if logged-in user is Admin
     const username=document.getElementById("username");
@@ -25,10 +24,9 @@ async function getAdmin(){
 // Second,Render all the exisiting users with their roles in the table
 
 async function renderUsers(){
-    const res = await fetch("http://localhost:3500/users",{
+    const res = await fetch("https://conferrable-emotionalistic-guillermo.ngrok-free.dev/users",{
         method:"GET",
-        headers:{"Content-Type":"application/json"},
-        credentials:"include"
+        headers:{"Content-Type":"application/json"}
     });
     const users = await res.json();
     // Consider the table as the container of all the users
@@ -61,11 +59,10 @@ userform.addEventListener("submit",async(e)=>{
     console.log(role);
     const control = document.getElementById('controlPermission').checked;
     const data = JSON.stringify({"username":user,"password":password,"role":role,"control":control});
-    const res = await fetch('http://localhost:3500/user',{
+    const res = await fetch('https://conferrable-emotionalistic-guillermo.ngrok-free.dev/user',{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body: data,
-        credentials:"include"
+        body: data
     });
     if(res.ok)
         renderUsers();
@@ -73,11 +70,10 @@ userform.addEventListener("submit",async(e)=>{
 // To toggle user permission to control lights
 async function toggleControl(username){
     const user = JSON.stringify({"username":username});
-    const res = await fetch("http://localhost:3500/user",{
+    const res = await fetch("https://conferrable-emotionalistic-guillermo.ngrok-free.dev/user",{
         method:"PUT",
         headers:{"Content-Type":"application/json"},
         body: user,
-        credentials:"include"
     });
     if(res.ok)
         renderUsers();
@@ -86,11 +82,10 @@ async function toggleControl(username){
 // To remove an existing user
 async function removeUser(username){
     const user = JSON.stringify({"username":username});
-    const res = await fetch("http://localhost:3500/user",{
+    const res = await fetch("https://conferrable-emotionalistic-guillermo.ngrok-free.dev/user",{
         method:"DELETE",
         headers:{"Content-Type":"application/json"},
-        body: user,
-        credentials:"include"
+        body: user
     });
     if(res.ok)
         renderUsers();
@@ -98,10 +93,9 @@ async function removeUser(username){
 
 // Display the Logs of Lights
 async function renderLogs(){
-    const res = await fetch('http://localhost:3500/light',{
+    const res = await fetch('https://conferrable-emotionalistic-guillermo.ngrok-free.dev/light',{
         method:"GET",
-        headers:{"Content-Type":"application/json"},
-        credentials:"include"
+        headers:{"Content-Type":"application/json"}
     });
     const logTable = document.getElementById('logsTableBody');
     const lightTable = document.getElementById('lightTableBody');
@@ -141,11 +135,10 @@ const lightForm = document.getElementById('lightForm');
 lightForm.addEventListener('submit',async(e) => {
     e.preventDefault()
     const color = JSON.stringify({"color":document.getElementById('color').value});
-    const res = await fetch('http://localhost:3500/light',{
+    const res = await fetch('https://conferrable-emotionalistic-guillermo.ngrok-free.dev/light',{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body: color,
-        credentials:"include"
+        body: color
     });
     if(res.ok)
         renderLogs();
@@ -153,11 +146,10 @@ lightForm.addEventListener('submit',async(e) => {
 
 // To disconnect a light
 async function disconnectLight(color){
-    const res = await fetch('http://localhost:3500/light',{
+    const res = await fetch('https://conferrable-emotionalistic-guillermo.ngrok-free.dev/light',{
         method:"DELETE",
         headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({"color":color}),
-        credentials:"include"
+        body: JSON.stringify({"color":color})
     });
     if(res.ok)
         renderLogs();
@@ -168,4 +160,5 @@ backBtn.addEventListener('click',async(e)=>{
 })
 getAdmin();
 renderUsers();
+
 renderLogs();
