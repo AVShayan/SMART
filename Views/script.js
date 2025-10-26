@@ -9,7 +9,7 @@ if(!user.control){
 */
 async function getUserDet(){
     // This function gets the username and his role
-    const res = await fetch("https://conferrable-emotionalistic-guillermo.ngrok-free.dev/user",{
+    const res = await fetch("https://heavy-lies-act.loca.lt/user",{
         method:"GET",
         headers:{"Content-Type":"application/json"}
     });
@@ -39,12 +39,45 @@ async function getUserDet(){
 async function renderLights(){
     try{
         // Make an API request to Node to get all connected lights
-        const res = await fetch('https://conferrable-emotionalistic-guillermo.ngrok-free.dev/light',{
+        const res = await fetch('https://heavy-lies-act.loca.lt//light',{
             method:"GET",
             headers:{"Content-Type":"application/json"}
         });
-        const text = await res.text();
-        console.log(text);
+        const light = await res.json();
+        const grid = document.getElementById("led-grid");
+        grid.innerHTML='';
+        lights.forEach((light) => {
+        const led = document.createElement('div');
+        led.classList.add("led");
+
+        const color = document.createElement('h2');
+        color.textContent = light.color;
+        color.classList.add("color");
+
+        const toggle = document.createElement('button');
+        toggle.classList.add('toggle');
+        // isOn -> Checking whether light has on class
+        // Switch between ON/OFF based on the status of light
+        if(light.status == 'ON'){   // If Light is ON
+            // Add 'on' to led
+            led.classList.add('on');
+            toggle.textContent = "Turn OFF";
+            toggle.onclick = function(){
+                console.log("OFF");
+                sendSignal(light.color,'OFF')}
+        }else{
+            led.classList.remove('on');
+            toggle.textContent = "Turn ON";
+            toggle.onclick = function(){
+                console.log("ON");
+                sendSignal(light.color,'ON');}
+        }
+
+        led.appendChild(color);
+        led.appendChild(toggle);
+        //Append the led class to container
+        grid.appendChild(led);
+    });
     }catch(err){
         console.error(err);
     }
@@ -52,7 +85,7 @@ async function renderLights(){
 // To send Signal API request to Node
 async function sendSignal(clr,cmd){
     const SIGNAL = JSON.stringify({"color":clr,"command":cmd});
-    const res = await fetch('https://conferrable-emotionalistic-guillermo.ngrok-free.dev/signal',{
+    const res = await fetch('https://heavy-lies-act.loca.lt/signal',{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body: SIGNAL
@@ -68,7 +101,7 @@ const logout = document.getElementById('logout-btn');
 
 logout.addEventListener("click",async(e)=>{
     try{
-        const res = await fetch("https://conferrable-emotionalistic-guillermo.ngrok-free.dev/logout",{
+        const res = await fetch("https://heavy-lies-act.loca.lt/logout",{
         method:"POST"
         });
     if(res.ok)
@@ -81,6 +114,7 @@ logout.addEventListener("click",async(e)=>{
 });
 renderLights();
 getUserDet();
+
 
 
 
