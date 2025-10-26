@@ -9,7 +9,7 @@ if(!user.control){
 */
 async function getUserDet(){
     // This function gets the username and his role
-    const res = await fetch("https://heavy-lies-act.loca.lt/user",{
+    const res = await fetch("https://ten-geckos-cry.loca.lt/user",{
         method:"GET",
         headers:{"Content-Type":"application/json"}
     });
@@ -39,7 +39,7 @@ async function getUserDet(){
 async function renderLights(){
     try{
         // Make an API request to Node to get all connected lights
-        const res = await fetch('https://heavy-lies-act.loca.lt/light',{
+        const res = await fetch('https://ten-geckos-cry.loca.lt/light',{
             method:"GET",
             headers:{"Content-Type":"application/json"}
         });
@@ -85,7 +85,7 @@ async function renderLights(){
 // To send Signal API request to Node
 async function sendSignal(clr,cmd){
     const SIGNAL = JSON.stringify({"color":clr,"command":cmd});
-    const res = await fetch('https://heavy-lies-act.loca.lt/signal',{
+    const res = await fetch('https://ten-geckos-cry.loca.lt/signal',{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body: SIGNAL
@@ -101,7 +101,7 @@ const logout = document.getElementById('logout-btn');
 
 logout.addEventListener("click",async(e)=>{
     try{
-        const res = await fetch("https://heavy-lies-act.loca.lt/logout",{
+        const res = await fetch("https://ten-geckos-cry.loca.lt/logout",{
         method:"POST"
         });
     if(res.ok)
@@ -114,6 +114,7 @@ logout.addEventListener("click",async(e)=>{
 });
 renderLights();
 getUserDet();
+
 
 
 
