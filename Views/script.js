@@ -45,7 +45,6 @@ async function renderLights(){
         });
         const text = await res.text();
         console.log(text);
-    });
     }catch(err){
         console.error(err);
     }
@@ -82,6 +81,7 @@ logout.addEventListener("click",async(e)=>{
 });
 renderLights();
 getUserDet();
+
 
 
 
