@@ -4,7 +4,8 @@ async function getAdmin(){
     try{
         const res = await fetch("https://conferrable-emotionalistic-guillermo.ngrok-free.dev/user",{
         method:"GET",
-        headers:{"Content-Type":"application/json"}
+        headers:{"Content-Type":"application/json"},
+        credentials:"include"
         });
     const user = await res.json();
     // Double-check if logged-in user is Admin
@@ -26,7 +27,8 @@ async function getAdmin(){
 async function renderUsers(){
     const res = await fetch("https://conferrable-emotionalistic-guillermo.ngrok-free.dev/users",{
         method:"GET",
-        headers:{"Content-Type":"application/json"}
+        headers:{"Content-Type":"application/json"},
+        credentials:"include"
     });
     const users = await res.json();
     // Consider the table as the container of all the users
@@ -62,7 +64,8 @@ userform.addEventListener("submit",async(e)=>{
     const res = await fetch('https://conferrable-emotionalistic-guillermo.ngrok-free.dev/user',{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body: data
+        body: data,
+        credentials:"include"
     });
     if(res.ok)
         renderUsers();
@@ -74,6 +77,7 @@ async function toggleControl(username){
         method:"PUT",
         headers:{"Content-Type":"application/json"},
         body: user,
+        credentials:"include"
     });
     if(res.ok)
         renderUsers();
@@ -85,7 +89,8 @@ async function removeUser(username){
     const res = await fetch("https://conferrable-emotionalistic-guillermo.ngrok-free.dev/user",{
         method:"DELETE",
         headers:{"Content-Type":"application/json"},
-        body: user
+        body: user,
+        credentials:"include"
     });
     if(res.ok)
         renderUsers();
@@ -95,7 +100,8 @@ async function removeUser(username){
 async function renderLogs(){
     const res = await fetch('https://conferrable-emotionalistic-guillermo.ngrok-free.dev/light',{
         method:"GET",
-        headers:{"Content-Type":"application/json"}
+        headers:{"Content-Type":"application/json"},
+        credentials:"include"
     });
     const logTable = document.getElementById('logsTableBody');
     const lightTable = document.getElementById('lightTableBody');
@@ -138,7 +144,8 @@ lightForm.addEventListener('submit',async(e) => {
     const res = await fetch('https://conferrable-emotionalistic-guillermo.ngrok-free.dev/light',{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body: color
+        body: color,
+        credentials:"include"
     });
     if(res.ok)
         renderLogs();
@@ -149,7 +156,8 @@ async function disconnectLight(color){
     const res = await fetch('https://conferrable-emotionalistic-guillermo.ngrok-free.dev/light',{
         method:"DELETE",
         headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({"color":color})
+        body: JSON.stringify({"color":color}),
+        credentials:"include"
     });
     if(res.ok)
         renderLogs();
@@ -162,3 +170,4 @@ getAdmin();
 renderUsers();
 
 renderLogs();
+
