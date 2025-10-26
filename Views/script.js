@@ -45,41 +45,6 @@ async function renderLights(){
         });
         const text = await res.text();
         console.log(text);
-        /*const lights = await res.json();
-        // Now using DOM, display all the connected lights in the app
-        const grid = document.getElementById("led-grid");
-        grid.innerHTML='';
-        lights.forEach((light) => {
-        const led = document.createElement('div');
-        led.classList.add("led");
-
-        const color = document.createElement('h2');
-        color.textContent = light.color;
-        color.classList.add("color");
-
-        const toggle = document.createElement('button');
-        toggle.classList.add('toggle');
-        // isOn -> Checking whether light has on class
-        // Switch between ON/OFF based on the status of light
-        if(light.status == 'ON'){   // If Light is ON
-            // Add 'on' to led
-            led.classList.add('on');
-            toggle.textContent = "Turn OFF";
-            toggle.onclick = function(){
-                console.log("OFF");
-                sendSignal(light.color,'OFF')}
-        }else{
-            led.classList.remove('on');
-            toggle.textContent = "Turn ON";
-            toggle.onclick = function(){
-                console.log("ON");
-                sendSignal(light.color,'ON');}
-        }
-
-        led.appendChild(color);
-        led.appendChild(toggle);
-        //Append the led class to container
-        grid.appendChild(led); */
     });
     }catch(err){
         console.error(err);
@@ -117,6 +82,7 @@ logout.addEventListener("click",async(e)=>{
 });
 renderLights();
 getUserDet();
+
 
 
 
