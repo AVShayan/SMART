@@ -5,7 +5,7 @@ loginForm.addEventListener("submit",async(e) => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const data = JSON.stringify({"username":username,"password":password});
-    const res = await fetch("http://localhost:3500/login",{
+    const res = await fetch("https://conferrable-emotionalistic-guillermo.ngrok-free.dev/login",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body: data
@@ -19,4 +19,5 @@ loginForm.addEventListener("submit",async(e) => {
         loginMsg.style.color = "red";
         loginMsg.textContent = result.message;
     }
+
 });
