@@ -11,7 +11,8 @@ async function getUserDet(){
     // This function gets the username and his role
     const res = await fetch("https://poor-chevy-variation-analyst.trycloudflare.com/user",{
         method:"GET",
-        headers:{"Content-Type":"application/json"}
+        headers:{"Content-Type":"application/json"},
+        credentials:"include"
     });
     const user = await res.json();
     if(!user)   alert("Please Log in!");
@@ -41,7 +42,8 @@ async function renderLights(){
         // Make an API request to Node to get all connected lights
         const res = await fetch('https://poor-chevy-variation-analyst.trycloudflare.com/light',{
             method:"GET",
-            headers:{"Content-Type":"application/json"}
+            headers:{"Content-Type":"application/json"},
+            credentials:"include"
         });
         const lights = await res.json();
         const grid = document.getElementById("led-grid");
@@ -88,7 +90,8 @@ async function sendSignal(clr,cmd){
     const res = await fetch('https://poor-chevy-variation-analyst.trycloudflare.com/signal',{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body: SIGNAL
+        body: SIGNAL,
+        credentials:"include"
     });
     const result = await res.json();
     if(!res.ok && result.message=='Please Log-in First!'){
@@ -102,7 +105,8 @@ const logout = document.getElementById('logout-btn');
 logout.addEventListener("click",async(e)=>{
     try{
         const res = await fetch("https://poor-chevy-variation-analyst.trycloudflare.com/logout",{
-        method:"POST"
+        method:"POST",
+        credentials:"include"
         });
     if(res.ok)
         window.location.href="./login.html";
@@ -114,6 +118,7 @@ logout.addEventListener("click",async(e)=>{
 });
 renderLights();
 getUserDet();
+
 
 
 
