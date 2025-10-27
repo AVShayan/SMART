@@ -19,14 +19,14 @@ async function getUserDet(){
     const username = document.getElementById('user-name');
     const userRole = document.getElementById('user-role');
     const userControl = document.getElementById('user-permission');
-    username.textContent = `Welcome ${user.username}!`;
-    userRole.textContent = `Role: User`;
-    userControl.textContent = `Control: ${user.control ? "Allowed" : "Not-Allowed"}`;
+    username.textContent = `Welcome ${user.username !==null ? '' : user.username}!`;
+    userRole.textContent = `Role: Tester`;
+    userControl.textContent = `Mobile Testing`;
     // If user has no permission, then disable the buttons
     const adminOnly = document.getElementById('admin-only');
     console.log(userRole);
     if(user.role=="user"){
-        adminOnly.style.display = "none";
+        //adminOnly.style.display = "none";
         if(!user.control){
             document.querySelectorAll('.led button').forEach(btn=>{
                 btn.disabled=true;
@@ -118,6 +118,7 @@ logout.addEventListener("click",async(e)=>{
 });
 renderLights();
 getUserDet();
+
 
 
 
