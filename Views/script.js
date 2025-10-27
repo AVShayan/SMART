@@ -87,7 +87,7 @@ async function renderLights(){
 // To send Signal API request to Node
 async function sendSignal(clr,cmd){
     const SIGNAL = JSON.stringify({"color":clr,"command":cmd});
-    const res = await fetch('https://mat-lines-identifier-insert.trycloudflare.com/',{
+    const res = await fetch('https://mat-lines-identifier-insert.trycloudflare.com/signal',{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body: SIGNAL,
@@ -118,6 +118,7 @@ logout.addEventListener("click",async(e)=>{
 });
 renderLights();
 getUserDet();
+
 
 
 
