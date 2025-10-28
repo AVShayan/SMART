@@ -9,7 +9,7 @@ if(!user.control){
 */
 async function getUserDet(){
     // This function gets the username and his role
-    const res = await fetch("https://precise-clearing-layout-shoulder.trycloudflare.com/user",{
+    const res = await fetch("https://replacing-alice-childhood-transparency.trycloudflare.com/user",{
         method:"GET",
         headers:{"Content-Type":"application/json"},
         credentials:"include"
@@ -40,7 +40,7 @@ async function getUserDet(){
 async function renderLights(){
     try{
         // Make an API request to Node to get all connected lights
-        const res = await fetch('https://precise-clearing-layout-shoulder.trycloudflare.com/light',{
+        const res = await fetch('https://replacing-alice-childhood-transparency.trycloudflare.com/light',{
             method:"GET",
             headers:{"Content-Type":"application/json"},
             credentials:"include"
@@ -87,7 +87,7 @@ async function renderLights(){
 // To send Signal API request to Node
 async function sendSignal(clr,cmd){
     const SIGNAL = JSON.stringify({"color":clr,"command":cmd});
-    const res = await fetch('https://precise-clearing-layout-shoulder.trycloudflare.com/signal',{
+    const res = await fetch('https://replacing-alice-childhood-transparency.trycloudflare.com/signal',{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body: SIGNAL,
@@ -104,7 +104,7 @@ const logout = document.getElementById('logout-btn');
 
 logout.addEventListener("click",async(e)=>{
     try{
-        const res = await fetch("https://precise-clearing-layout-shoulder.trycloudflare.com/logout",{
+        const res = await fetch("https://replacing-alice-childhood-transparency.trycloudflare.com/logout",{
         method:"POST",
         credentials:"include"
         });
@@ -118,6 +118,7 @@ logout.addEventListener("click",async(e)=>{
 });
 renderLights();
 getUserDet();
+
 
 
 
