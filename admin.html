@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Admin</title>
+        <link rel="stylesheet" href="./styles2.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="back-btn" id="backBtn">Back</div>
+            <div class="brand">S M A R T</div>
+            <div class="user-info">
+                <span id="username"></span>
+                <span id="user-role"></span>
+            </div>
+        </nav>
+        <div class="container">
+            <section class="panel">
+                <h2 color="green">Manage Lights</h2>
+                <form id="lightForm" class="light-form">
+                    <input type="text" id="color" placeholder="Color">
+                    <button type="submit" class="add-btn">Add</button>
+                </form>
+                <div class="lights-list">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>LED</th>
+                                <th>Status</th>
+                                <th>Connection</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="lightTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section class="panel">
+                <h2>Activity</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Action</th>
+                            <th>LED</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logsTableBody">
+                    </tbody>
+                </table>
+            </section>
+            <section class="panel">
+                <h2>Manage Users</h2>
+                <form id="userForm" class="user-form">
+                    <input type="text" id="user" placeholder="Username" required>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <select id="roleSelect">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <label>
+                        <input type="checkbox" id="controlPermission">Allow Control
+                    </label>
+                    <button type="submit" class="add-btn">Add User</button>
+                </form>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>Control</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                    </tbody>
+                </table>
+            </section>
+            </div>
+        <script src="admin.js"></script>
+    </body>
+</html>

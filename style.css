@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background: #111;
+    color: #f8d72a;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar{
+    background: #111;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #f8d72a;
+}
+
+.navbar .brand{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f8d72a;
+    text-shadow: 0 0 10px #f8d72a;
+}
+
+.container{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.card{
+    background: transparent;
+    border: 2px solid #f8d72a;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #f8d72a80;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+.card h1{
+    margin-bottom: 10px;
+    color: #f8d72a;
+    text-shadow: 0 0 10px #f8d72a;
+}
+.card p{
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+.input-group{
+    margin-bottom: 20px;
+    text-align: left;
+}
+.input-group label{
+    display: block;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    color: #f8d72a;
+}
+.input-group input{
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #f8d72a;
+    border-radius: 8px;
+    background: #111;
+    color: #fff;
+    outline: none;
+    transition: all 0.2s;
+}
+.input-group input:focus{
+    border-color: #ffe856;
+    box-shadow: 0 0 10px #f8d72a;
+}
+
+.login-btn{
+    width:100%;
+    background: #f8d72a;
+    color: #000;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.login-btn:hover{
+    background: #ffe856;
+    box-shadow: 0 0 15px #f8d72a;
+}
+#loginMsg{
+    position: relative;
+    top: 25px;
+}

@@ -1,0 +1,112 @@
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+}
+.navbar{
+    background: #123;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f8d72a;
+}
+#user-name{
+    font-size: 1.4rem;
+    font-weight:bold;
+    color: #f9d423;
+}
+.navbar .user-info{
+    font-size: 1rem;
+    color: #fff;
+}
+.navbar .user-info span{
+    margin: 0 5px;
+}
+.navbar button{
+    background: rgb(206, 25, 25);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 12px;
+    border:none;
+    color: #fff;
+    box-shadow: 3px 3px 18px #ff4e50;
+    transform: all 0.1s ease-in;
+}
+.navbar button:hover{
+    cursor: pointer;
+    background: #0f2027;
+    transform: translateY(3px);
+}
+.container{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+.container h1{
+    color: #f9d423;
+    text-shadow: 0 0 10px #f9d423;
+    margin-bottom: 35px;
+    margin-top: 5px;
+}
+
+.led-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    gap: 20px;
+    max-width: 600px;
+    width: 100%;
+}
+.led{
+    background: #222;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 0 10px #00ffff;
+    transition: all 0.3s ease;
+}
+.led button{
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px #000 inset;
+}
+.led button:hover{
+    background: #00ffff;
+    color: #000;
+    box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+.led.on{
+    background: linear-gradient(135deg,#f9d423,#ff4e50);
+    box-shadow: 0 0 20px #f9d423, 0 0 40px #ff4e50;
+    border: none;
+}
+.led.on h2{
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff4e50;
+}
+.disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+a{
+    font-size: x-large;
+    font-weight: bolder;
+    text-decoration: none;}
+a:visited{
+    color: #f8d72a;
+    text-decoration:none;
+}
