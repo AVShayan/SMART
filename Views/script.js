@@ -9,7 +9,7 @@ if(!user.control){
 */
 async function getUserDet(){
     // This function gets the username and his role
-    const res = await fetch("https://applied-random-therapy-obligation.trycloudflare.com/user",{
+    const res = await fetch(" https://california-damages-contributor-her.trycloudflare.com/user",{
         method:"GET",
         headers:{"Content-Type":"application/json"},
         credentials:"include"
@@ -40,7 +40,7 @@ async function getUserDet(){
 async function renderLights(){
     try{
         // Make an API request to Node to get all connected lights
-        const res = await fetch('https://applied-random-therapy-obligation.trycloudflare.com/light',{
+        const res = await fetch('https://california-damages-contributor-her.trycloudflare.com/light',{
             method:"GET",
             headers:{"Content-Type":"application/json"},
             credentials:"include"
@@ -87,7 +87,7 @@ async function renderLights(){
 // To send Signal API request to Node
 async function sendSignal(clr,cmd){
     const SIGNAL = JSON.stringify({"color":clr,"command":cmd});
-    const res = await fetch('https://applied-random-therapy-obligation.trycloudflare.com/signal',{
+    const res = await fetch('https://california-damages-contributor-her.trycloudflare.com/signal',{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body: SIGNAL,
@@ -118,6 +118,7 @@ logout.addEventListener("click",async(e)=>{
 });
 renderLights();
 getUserDet();
+
 
 
 
